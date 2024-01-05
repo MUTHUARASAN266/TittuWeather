@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeScreen"
+        android:icon="@drawable/sun"
+        android:title="Dashboard"/>
+    <item
+        android:id="@+id/settingsScreen"
+        android:icon="@drawable/cloudy_with_rain"
+        android:title="settings" />
+</menu>

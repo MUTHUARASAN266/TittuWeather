@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 object ThemePreferencesManager {
     private const val PREF_NAME = "theme_preferences"
     const val LIGHT_MODE = "light_mode"
+    const val Store_My_Switch = "switchValue"
 
     fun getSharedPreferences(context: Context): SharedPreferences {
         return context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
@@ -29,11 +30,11 @@ object ThemePreferencesManager {
         return getSharedPreferences(context).getBoolean(LIGHT_MODE,false)
 
     }
-    fun muthuStore(context: Context,state: Boolean){
+    fun storeMyTheme(context: Context,state: Boolean){
         val edit=getSharedPreferences(context).edit()
-        edit.putBoolean(LIGHT_MODE,state).apply()
+        edit.putBoolean(Store_My_Switch,state).apply()
     }
-    fun muthuGet(context: Context):Boolean{
-        return getSharedPreferences(context).getBoolean(LIGHT_MODE,false)
+    fun getMyTheme(context: Context):Boolean{
+        return getSharedPreferences(context).getBoolean(Store_My_Switch,false)
     }
 }
