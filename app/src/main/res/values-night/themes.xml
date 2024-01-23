@@ -3,7 +3,7 @@
     <style name="Base.Theme.MyWeatherApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-        <item name="colorPrimary">@color/primaryColor_blue</item>
+        <item name="colorPrimary">@color/primaryAccent_blue</item>
         <item name="colorPrimaryDark">@color/primaryColorDark_blue</item>
         <item name="colorAccent">@color/primaryAccent_blue</item>
         <item name="backgroundColor">@color/primaryColorDark_blue</item>

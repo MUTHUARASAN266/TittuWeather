@@ -3,10 +3,10 @@
     <style name="Base.Theme.MyWeatherApp" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="colorPrimary">@color/primaryColor_red</item>
-        <item name="colorPrimaryDark">@color/primaryColorDark_red</item>
+        <item name="colorPrimary">@color/primaryColor_sky</item>
+        <item name="colorPrimaryDark">@color/primaryColorDark_skyBlue</item>
         <item name="colorAccent">@color/primaryAccent_red</item>
-        <item name="backgroundColor">@color/primaryColorDark_red</item>
+        <item name="backgroundColor">@color/primaryColorDark_skyBlue</item>
     </style>
 
     <style name="Theme.MyWeatherApp" parent="Base.Theme.MyWeatherApp" />

@@ -1,16 +1,16 @@
 package com.example.myweatherapp
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.example.myweatherapp.databinding.FragmentSettingsScreenBinding
 
 class SettingsScreen : Fragment() {
-    lateinit var binding: FragmentSettingsScreenBinding
-    private val TAG = "SettingsScreen"
+    private lateinit var binding: FragmentSettingsScreenBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -18,22 +18,24 @@ class SettingsScreen : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentSettingsScreenBinding.inflate(inflater)
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val getMyTheme =
-            ThemePreferencesManager.getMyTheme(requireContext())  // getting mobile theme
+        val getMyTheme = ThemePreferencesManager.getMyTheme(requireContext())  // getting mobile theme
 
         switchMyTheme(getMyTheme)
         binding.themeBtn.setOnCheckedChangeListener { buttonView, isChecked ->
             onThemeSwitchChanged(isChecked)
             //storeMyTheme(binding.themeBtn.isChecked)  // storing my switchValue
         }
+        val versionName = requireContext().packageManager.getPackageInfo(requireContext().packageName, 0).versionName
+        binding.versionText.text = "Version: $versionName"
     }
 
     // Check if the switch Theme exists
@@ -55,5 +57,8 @@ class SettingsScreen : Fragment() {
         (requireActivity().application as MyApp).setAppTheme(checked)
         // recreate() // Recreate the activity to apply the new theme
 
+    }
+    companion object{
+        private const val TAG = "SettingsScreen"
     }
 }

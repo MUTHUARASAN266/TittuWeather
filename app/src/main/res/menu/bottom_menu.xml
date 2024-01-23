@@ -4,9 +4,11 @@
     <item
         android:id="@+id/homeScreen"
         android:icon="@drawable/sun"
-        android:title="Dashboard"/>
+        android:enabled="true"
+        android:title="MyWeather"/>
     <item
         android:id="@+id/settingsScreen"
-        android:icon="@drawable/cloudy_with_rain"
+        android:enabled="true"
+        android:icon="@drawable/settings_icon"
         android:title="settings" />
 </menu>

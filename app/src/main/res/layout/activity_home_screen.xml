@@ -25,6 +25,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:menu="@menu/bottom_menu"
+        app:labelVisibilityMode="selected"
+        android:backgroundTint="@color/primaryAccent_blue"
+        app:elevation="10dp"
+        style="@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

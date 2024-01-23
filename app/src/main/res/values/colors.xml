@@ -13,4 +13,10 @@
     <color name="primaryColor_red">#F44336</color>
     <color name="primaryColorDark_red">#D32F2F</color>
     <color name="primaryAccent_red">#FFEBEE</color>
+    <color name="primaryColor_yellow">#7FA650</color>
+    <color name="primaryColorDark_yellow">#1E6521</color>
+<!--    <color name="primaryColor_white">#7FA650</color>-->
+    <color name="primaryColor_sky">#00BCD4</color>
+    <color name="primaryColorDark_skyBlue">#03A9F4</color>
+
 </resources>
