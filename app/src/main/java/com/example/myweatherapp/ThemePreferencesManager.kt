@@ -5,10 +5,10 @@ import android.content.SharedPreferences
 
 object ThemePreferencesManager {
     private const val PREF_NAME = "theme_preferences"
-    const val LIGHT_MODE = "light_mode"
-    const val Store_My_Switch = "switchValue"
+    private const val LIGHT_MODE = "light_mode"
+    private const val Store_My_Switch = "switchValue"
 
-    fun getSharedPreferences(context: Context): SharedPreferences {
+    private fun getSharedPreferences(context: Context): SharedPreferences {
         return context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
     }

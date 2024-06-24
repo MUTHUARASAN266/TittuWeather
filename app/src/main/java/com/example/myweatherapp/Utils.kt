@@ -1,15 +1,16 @@
 package com.example.myweatherapp
 
-import android.app.ProgressDialog
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import com.example.myweatherapp.databinding.ProgressDialogBinding
 import com.google.android.material.snackbar.Snackbar
 
-fun getWeatherDescriptionCode(weatherCode: Int?,imageView: ImageView) {
-     when (weatherCode) {
+fun getWeatherDescriptionCode(weatherCode: Int?, imageView: ImageView) {
+    when (weatherCode) {
         395 -> imageView.setImageResource(WeatherIconResources.heavy_snow_with_thunder)
         392 -> imageView.setImageResource(WeatherIconResources.heavy_snow_with_thunder)
         389 -> imageView.setImageResource(WeatherIconResources.heavy_rain_with_thunder)
@@ -58,23 +59,31 @@ fun getWeatherDescriptionCode(weatherCode: Int?,imageView: ImageView) {
         119 -> imageView.setImageResource(WeatherIconResources.Cloudy)
         116 -> imageView.setImageResource(WeatherIconResources.Partly_Cloudy)
         113 -> imageView.setImageResource(WeatherIconResources.Clear_Sunny)
-        else ->imageView.setImageResource(WeatherIconResources.SUNNY)
+        else -> imageView.setImageResource(WeatherIconResources.SUNNY)
     }
 }
-fun ProgressDialog.show(title:String,message:String){
-   setTitle(title)
-   setMessage(message)
-   show()
 
-}
-fun ProgressDialog.hide(){
-   dismiss()
-}
-fun Context.toast(message:String){
-   Toast.makeText(this,message, Toast.LENGTH_SHORT).show()
+fun showCustomProgressDialog(context: Context, title: String, message: String): AlertDialog {
+    val builder = AlertDialog.Builder(context)
+    val binding = ProgressDialogBinding.inflate(LayoutInflater.from(context))
+    binding.dialogTitle.text = title
+    binding.dialogMessage.text = message
+    builder.setView(binding.root)
+    val dialog = builder.create()
+    dialog.setCancelable(false) // Prevent dismissing by tapping outside
+    dialog.show()
+    return dialog
 }
 
-fun View.snack(message: String, duration: Int){
-   Snackbar.make(this,message,duration).show()
+fun hideCustomProgressDialog(dialog: AlertDialog) {
+    dialog.dismiss()
+}
+
+fun Context.toast(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+}
+
+fun View.snack(message: String, duration: Int) {
+    Snackbar.make(this, message, duration).show()
 
 }

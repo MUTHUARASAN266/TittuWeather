@@ -10,28 +10,28 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment_activity"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:tag="Dashboard"
         app:defaultNavHost="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navi"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/navigation"
-        android:tag="Dashboard"
-        />
+        app:navGraph="@navigation/navigation" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navi"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/bottom_menu"
-        app:labelVisibilityMode="selected"
+        android:layout_height="?actionBarSize"
         android:backgroundTint="@color/primaryAccent_blue"
         app:elevation="10dp"
-        style="@style/Widget.MaterialComponents.BottomNavigationView.PrimarySurface"
+        app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:menu="@menu/bottom_menu" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

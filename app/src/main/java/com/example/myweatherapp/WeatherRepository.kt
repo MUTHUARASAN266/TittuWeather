@@ -9,8 +9,6 @@ import javax.inject.Inject
 @ViewModelScoped
 class WeatherRepository @Inject constructor(private val api: WeatherStackApi) {
 
-    private val TAG = "WeatherRepository"
-
     suspend fun myWeather(apiKey: String, location: String): WeatherResult {
         val response = api.getCurrentWeather1(apiKey, location)
         return try {
@@ -31,5 +29,8 @@ class WeatherRepository @Inject constructor(private val api: WeatherStackApi) {
             Log.e(TAG, "myWeather: $e")
             WeatherResult.Error(response.body())
         }
+    }
+    companion object{
+       private const val TAG = "WeatherRepository"
     }
 }

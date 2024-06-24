@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?attr/textAppearanceHeadline6"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/dialogMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:textAppearance="?attr/textAppearanceBody1"
+        android:textColor="@color/black" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/primaryColorDark_blue"
+        android:indeterminateTintMode="src_atop"
+        android:progressBackgroundTint="@color/primaryColor_yellow"
+        android:progressBackgroundTintMode="src_over"
+        android:progressTint="@color/primaryColorDark_red"
+        android:progressTintMode="src_in"
+        android:secondaryProgress="80"
+        android:secondaryProgressTint="@color/primaryAccent_red"
+        android:secondaryProgressTintMode="src_over"
+        android:visibility="visible" />
+
+
+</LinearLayout>

@@ -15,8 +15,6 @@ import javax.inject.Inject
 @HiltViewModel
 class WeatherViewModel @Inject constructor(private val weatherRepository: WeatherRepository) : ViewModel() {
 
-    private val TAG = "WeatherViewModel"
-
     suspend fun weatherData(apiKey: String, location: String) = liveData(Dispatchers.IO) {
 
         emit(WeatherResult.Loading(true))
@@ -26,10 +24,15 @@ class WeatherViewModel @Inject constructor(private val weatherRepository: Weathe
         } catch (e: Exception) {
             emit(WeatherResult.Loading(false))
             Log.e(TAG, "weatherData: ${e.message}")
+            Log.e(TAG, "weatherData1: $e")
             emit(WeatherResult.Error(null))
         }finally {
             emit(WeatherResult.Loading(false))
 
         }
+    }
+
+    companion object{
+        private const val TAG = "WeatherViewModel"
     }
 }

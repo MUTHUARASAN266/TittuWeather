@@ -1,118 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/skyBlue"
     tools:context=".HomeScreen">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="30dp"
-        android:layout_marginTop="30dp"
-        android:textColorHint="@color/black"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
-        app:hintAnimationEnabled="false"
-        app:hintEnabled="false"
-        app:hintTextColor="@color/ic_launcher_background"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/location_edt"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/edit_text_background"
-            android:hint="Location Please"
-            android:textColorHint="@color/skyBlue"
-            android:textColor="@color/black"
-            android:inputType="text"
-            android:maxLines="1" />
+            android:orientation="vertical">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:layout_marginTop="30dp"
+                android:textColorHint="@color/black"
+                app:boxStrokeWidth="0dp"
+                android:layout_gravity="center"
+                app:boxStrokeWidthFocused="0dp"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false"
+                app:hintTextColor="@color/ic_launcher_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_find"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Find"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayout" />
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/location_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_background"
+                    android:hint="Location Please"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/skyBlue" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/city_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_find" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/weather_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#656262"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="@+id/city_name"
-        app:layout_constraintStart_toStartOf="@+id/city_name"
-        app:layout_constraintTop_toBottomOf="@+id/city_name" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_find"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Find"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textInputLayout" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/weather_icon"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weather_name"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/city_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_find" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/weather_response"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:lottie_rawRes="@raw/animation08"
-        app:lottie_loop="true"
-        app:layout_constraintTop_toBottomOf="@id/btn_find"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-    <!--    <View-->
-    <!--        android:id="@+id/overlayView"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:background="#80000000"/>-->
-    <!-- <ProgressBar
-         android:id="@+id/progress_bar"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="@+id/city_name" />-->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/weather_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#656262"
+                android:layout_gravity="center"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="@+id/city_name"
+                app:layout_constraintStart_toStartOf="@+id/city_name"
+                app:layout_constraintTop_toBottomOf="@+id/city_name" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/weather_icon"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weather_name" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/weather_response"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btn_find"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/animation08" />
+
+            <!--    <View-->
+            <!--        android:id="@+id/overlayView"-->
+            <!--        android:layout_width="match_parent"-->
+            <!--        android:layout_height="match_parent"-->
+            <!--        android:background="#80000000"/>-->
+            <!-- <ProgressBar
+                 android:id="@+id/progress_bar"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toTopOf="@+id/city_name" />-->
 
 
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/rain_temp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:textColor="@color/black"
+                android:textSize="40sp"
+                android:layout_gravity="center"
+                android:textStyle="italic"
+                app:layout_constraintEnd_toEndOf="@+id/weather_icon"
+                app:layout_constraintStart_toStartOf="@+id/weather_icon"
+                app:layout_constraintTop_toBottomOf="@+id/weather_icon" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/rain_temp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:textColor="@color/black"
-        android:textSize="40sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="@+id/weather_icon"
-        app:layout_constraintStart_toStartOf="@+id/weather_icon"
-        app:layout_constraintTop_toBottomOf="@+id/weather_icon" />
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/weather_details_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/white"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="@id/rain_temp"
+                app:layout_constraintStart_toStartOf="@id/rain_temp"
+                app:layout_constraintTop_toBottomOf="@id/rain_temp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/materialTextView"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="start"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/humidity_iconn"
+                        android:text="@string/app_name"
+                        app:layout_constraintEnd_toStartOf="@id/materialTextView2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/materialTextView2"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_gravity="end"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/wind_icon"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/materialTextView"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/humidity_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="@id/materialTextView"
+                        app:layout_constraintStart_toStartOf="@id/materialTextView"
+                        app:layout_constraintTop_toBottomOf="@id/materialTextView" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/wind_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="@id/materialTextView2"
+                        app:layout_constraintStart_toStartOf="@id/materialTextView2"
+                        app:layout_constraintTop_toBottomOf="@id/materialTextView2" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
